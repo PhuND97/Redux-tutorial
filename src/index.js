@@ -11,6 +11,7 @@ import { userAdded } from "./store/users";
 
 const store = configureStore();
 
+/*
 store.subscribe(() => console.log("Store changed"));
 
 store.dispatch(userAdded({ name: "User 1" }));
@@ -24,3 +25,12 @@ store.dispatch(bugResolved({ id: 1 }));
 
 const bugs = getBugsByUser(2)(store.getState());
 console.log(bugs);
+*/
+
+store.dispatch((dispatch, getState) => {
+  // Call an API
+  // When the promise is resolved => dispatch() the result of promise
+  dispatch({ type: "bugsReceived", bugs: [1, 2, 3] });
+  console.log(getState());
+  // If the promise is rejected => dispatch()
+});
