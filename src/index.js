@@ -27,10 +27,15 @@ const bugs = getBugsByUser(2)(store.getState());
 console.log(bugs);
 */
 
-store.dispatch((dispatch, getState) => {
-  // Call an API
-  // When the promise is resolved => dispatch() the result of promise
-  dispatch({ type: "bugsReceived", bugs: [1, 2, 3] });
-  console.log(getState());
-  // If the promise is rejected => dispatch()
+// store.dispatch((dispatch, getState) => {
+//   // Call an API
+//   // When the promise is resolved => dispatch() the result of promise
+//   dispatch({ type: "bugsReceived", bugs: [1, 2, 3] });
+//   console.log(getState());
+//   // If the promise is rejected => dispatch()
+// });
+
+store.dispatch({
+  type: "error",
+  payload: { message: "An error occured" },
 });
